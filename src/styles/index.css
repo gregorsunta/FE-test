@@ -1,0 +1,13 @@
+@import url(./reset-styles.css);
+
+:root {
+  --clr-main: black;
+  --clr-light: white;
+  --clr-accent-primary-200: #80c4da;
+  --clr-accent-primary-500: #259bc1;
+  --clr-accent-primary-700: #055e92;
+  --clr-accent-secondary-400: #8dc63f;
+  --clr-neutral: #23282d;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
