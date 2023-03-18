@@ -14,13 +14,6 @@ export default {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          'style-loader',
-        ],
-      },
-      {
         test: /\.jsx?$/,
         exclude: ['/' + '/node_modules'],
         use: ['babel-loader'],
