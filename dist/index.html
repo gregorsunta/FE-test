@@ -5,14 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Platform</title>
-    <script src="./main.js" defer></script>
+    <script src="./main.bundle.js" defer></script>
   </head>
   <body>
-    <header>
-      <div class="logo"></div>
-      <div class="filters"></div>
+    <header class="primary-header_container">
+      <div class="primary-header container padding-block-200">
+        <div class="logo">
+          <svg
+            width="19"
+            height="17"
+            viewBox="0 0 19 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M7.1712 17.0001C3.1914 17.0001 0 13.824 0 9.8631V4.0518H4.0743V0H11.8278C15.8094 0 18.9999 3.1743 18.9999 7.1352V12.9474H14.9265V17.0001H7.1712ZM4.077 9.8631C4.077 11.5767 5.4504 12.9411 7.1712 12.9411H14.922V7.1352C14.922 5.4225 13.5495 4.0572 11.8278 4.0572H4.077V9.8631Z"
+              fill="#055E92"
+            />
+          </svg>
+          <span class="name text-accent-primary-700">PLATFORM ADMIN</span>
+        </div>
+        <ul class="header_filters">
+          <span class="text-accent-primary-700">FILTERS</span
+          ><button class="active text-accent-primary-700">All</button
+          ><button class="text-accent-primary-700">Free</button
+          ><button class="text-accent-primary-700">Paying</button>
+        </ul>
+      </div>
     </header>
-    <div id="main"></div>
+    <div id="content">
+      <header class="bg-neutral-200 padding-block-200">
+        <div class="content_header container">
+          <input aria-label="Search" placeholder="Search" class="search" />
+          <button class="btn-secondary bg-accent-secondary text-light">
+            Create New Account
+          </button>
+        </div>
+      </header>
+      <div class="content_list padding-block-500">
+        <table class="list container">
+          <colgroup>
+            <col span="1" class="colgrupa1" />
+            <col span="1" class="colgrupa2" />
+            <col span="1" class="colgrupa3" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col" class="text-neutral-500 font-weight-400">ID</th>
+              <th scope="col" class="text-neutral-500 font-weight-400">
+                Company name
+              </th>
+              <th scope="col" class="text-neutral-500 font-weight-400">
+                Owner email
+              </th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
     <footer></footer>
   </body>
 </html>

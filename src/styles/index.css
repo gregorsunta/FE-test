@@ -1,13 +1,192 @@
-@import url(./reset-styles.css);
+@import url('./reset-styles.css');
 
 :root {
   --clr-main: black;
   --clr-light: white;
-  --clr-accent-primary-200: #80c4da;
+  --clr-accent-primary-300: #80c4da;
   --clr-accent-primary-500: #259bc1;
   --clr-accent-primary-700: #055e92;
+  --clr-accent-secondary-300: #9ddc45;
   --clr-accent-secondary-400: #8dc63f;
-  --clr-neutral: #23282d;
+  --clr-accent-primary-900: #23282d;
+  --clr-neutral-200: #f2f2f2;
+  --clr-neutral-300: #c9c8c8;
+  /* --clr-neutral-400: #f2f2f2; */
+  --clr-neutral-500: #8e929b;
+  --clr-neutral-600: #82878f;
+
+  --size-70: 0.075rem;
+  --size-80: 0.1rem;
+  --size-90: 0.125rem;
+  --size-100: 0.25rem;
+  --size-200: 0.5rem;
+  --size-300: 0.75rem;
+  --size-400: 1rem;
+  --size-500: 1.25rem;
+  --size-600: 2rem;
+  --size-700: 2.5rem;
+  --size-800: 3rem;
 
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* UTILITY */
+
+.bg-neutral-200 {
+  background-color: var(--clr-neutral-200);
+}
+.bg-accent-700 {
+  background-color: var(--clr-accent-primary-700);
+}
+.bg-accent-500 {
+  background-color: var(--clr-accent-primary-500);
+}
+.bg-accent-secondary {
+  background-color: var(--clr-accent-secondary-400);
+}
+.padding-block-100 {
+  padding: var(--size-100);
+}
+.padding-block-200 {
+  padding: var(--size-200);
+}
+.padding-block-300 {
+  padding: var(--size-300);
+}
+.padding-block-400 {
+  padding: var(--size-400);
+}
+.padding-block-500 {
+  padding: var(--size-500);
+}
+.padding-block-600 {
+  padding: var(--size-600);
+}
+.text-light {
+  color: var(--clr-light);
+}
+.text-neutral-300 {
+  color: var(--clr-neutral-300);
+}
+.text-neutral-500 {
+  color: var(--clr-neutral-500);
+}
+.text-accent-primary-300 {
+  color: var(--clr-accent-primary-300);
+}
+.text-accent-primary-700 {
+  color: var(--clr-accent-primary-700);
+}
+.font-weight-400 {
+  font-weight: 400;
+}
+.container {
+  --max-width: 1000px;
+  margin-inline: auto;
+  max-width: min(var(--max-width), (100% - var(--size-500)));
+}
+.btn-secondary {
+  padding: var(--size-100) var(--size-500);
+}
+.btn-secondary:hover {
+  /* TODO: SHOULD ADD HLS white transparency */
+  background-color: var(--clr-accent-secondary-300);
+}
+
+/* GENERIC ELEMENTS */
+
+button {
+  border-radius: var(--size-200);
+}
+input {
+  max-width: 100%;
+  padding: var(--size-200) var(--size-700);
+
+  border: 2px solid var(--clr-neutral-300);
+  border-radius: var(--size-200);
+}
+
+/* GENERAL STYLING */
+
+/* PRIMARY HEADER */
+.primary-header_container {
+  background-color: var(--clr-accent-primary-500);
+  box-shadow: 0 0 8px 8px var(--clr-neutral-600);
+  position: relative;
+  z-index: 1;
+}
+.primary-header {
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: var(--size-300);
+}
+.header_filters > * {
+  background-color: transparent;
+  padding: var(--size-300);
+}
+.header_filters > button {
+  border-radius: var(--size-200);
+}
+.header_filters > button:hover {
+  color: var(--clr-accent-primary-900);
+}
+.header_filters > .active {
+  color: var(--clr-light);
+  background-color: hsl(0, 100%, 100%, 0.2);
+}
+@media only screen and (max-width: 550px) {
+  .logo > .name {
+    display: none;
+  }
+}
+/* CONTENT */
+
+.content_header {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: var(--size-400);
+  padding-bottom: var(--size-400);
+}
+.search {
+  background-image: url('../assets/magnifying-glass.svg');
+  background-repeat: no-repeat;
+  background-size: var(--size-500);
+  background-position: var(--size-300) 50%;
+}
+.search::placeholder {
+  opacity: 1;
+  color: var(--clr-neutral-500);
+}
+.content_list {
+  display: block;
+  overflow-y: scroll;
+}
+.list {
+  width: 100%;
+  border-collapse: collapse;
+}
+.list td,
+th {
+  white-space: nowrap;
+  text-align: left;
+  border-bottom: 1px solid var(--clr-neutral-300);
+  padding-left: var(--size-500);
+  padding-right: var(--size-500);
+}
+.list td {
+  padding: var(--size-500);
+}
+@media only screen and (max-width: 550px) {
+  .content_header {
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: var(--size-200);
+  }
 }
