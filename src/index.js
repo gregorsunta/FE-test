@@ -4,42 +4,43 @@ import './styles/index.css';
 
 const UserSearch = (function () {
   let userList = null;
-  let searchTimeout = null;
+  const SEARCH_TIMEOUT_AMOUNT = 800;
 
-  const fetchUsers = async (e) => {
-    const searchStr = e.target.value;
+  const fetchUsers = async (searchStr) => {
     userList = null;
+    try {
+      // TODO: start loading icon
+      await new Promise((resolve) => {
+        setTimeout(resolve, SEARCH_TIMEOUT_AMOUNT);
+      });
+      // should paginate for better performance
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/users?name_like=${searchStr}`,
+      );
+      if (!response.ok) {
+        throw new Error(`An error occured (${response.status})`);
+      }
+      const responseJSON = await response.json();
 
-    clearTimeout(searchTimeout);
+      userList = responseJSON;
+      updateUI();
+    } catch (err) {
+      // TODO: show user error message
 
-    searchTimeout = setTimeout(() => {
-      fetch(`https://jsonplaceholder.typicode.com/users?name_like=${searchStr}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('An error occured');
-          }
-          return response.json();
-        })
-        .then((response) => {
-          userList = response;
-          updateUI();
-          console.log(userList);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }, 800);
+      console.error(err);
+    } finally {
+      // TODO: stop loading icon
+    }
   };
-
   const updateUI = () => {
-    const userListContainer = document.getElementById('user-list-container');
+    const tableBody = document.getElementById('content_table-body');
 
     const resetListContainer = () => {
-      while (userListContainer.firstChild) {
-        userListContainer.removeChild(userListContainer.lastChild);
+      while (tableBody.firstChild) {
+        tableBody.removeChild(tableBody.lastChild);
       }
     };
-    const createRow = (user) => {
+    const createRowNode = (user) => {
       const tr = document.createElement('tr');
       const td = document.createElement('td');
 
@@ -54,23 +55,20 @@ const UserSearch = (function () {
       tr.append(id, name, email);
       return tr;
     };
-    const createRowNode = () => {
-      if (!userList[0]) {
-        return [
-          createRow({ name: 'no data', id: 'no data', email: 'no data' }),
-        ];
-      }
-      return userList.map((user) => createRow(user));
-    };
-
     resetListContainer();
-
-    userListContainer.append(...createRowNode());
+    const rowNodes = userList.map((user) => createRowNode(user));
+    tableBody.append(...rowNodes);
   };
-
   const init = () => {
+    // display all items
+    fetchUsers('');
+
+    // enable item search
     const searchBox = document.getElementById('list-search');
-    searchBox.addEventListener('input', fetchUsers);
+    searchBox.value = '';
+    searchBox.addEventListener('input', (e) => {
+      fetchUsers(e.target.value);
+    });
   };
   return { init };
 })();
