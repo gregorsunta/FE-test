@@ -8,8 +8,8 @@
     <script src="./main.bundle.js" defer></script>
   </head>
   <body>
-    <header class="primary-header_container">
-      <div class="primary-header container padding-block-200">
+    <header class="primary-header">
+      <div class="primary-header_container container padding-block-200">
         <div class="logo">
           <svg
             width="19"
@@ -27,35 +27,49 @@
           </svg>
           <span class="name text-accent-primary-700">PLATFORM ADMIN</span>
         </div>
-        <ul class="header_filters">
-          <span class="text-accent-primary-300">FILTERS</span
-          ><button class="active text-accent-primary-300">All</button
-          ><button class="text-accent-primary-300">Free</button
-          ><button class="text-accent-primary-300">Paying</button>
-        </ul>
+        <div class="filters-container">
+          <span class="filters-container_name text-accent-primary-300"
+            >FILTERS</span
+          >
+          <ul class="filters-container_list">
+            <li class="inline-block">
+              <button class="text-accent-primary-300 padding-block-300 active">
+                All
+              </button>
+            </li>
+            <li class="inline-block">
+              <button class="text-accent-primary-300 padding-block-300">
+                Free
+              </button>
+            </li>
+            <li class="inline-block">
+              <button class="text-accent-primary-300 padding-block-300">
+                Paying
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
     <div id="content">
       <header class="bg-neutral-200 padding-block-200">
-        <div class="content_header container">
+        <div class="content_header-container container">
           <input
             aria-label="Search"
             placeholder="Search"
             class="search"
             id="list-search"
           />
-          <button class="btn-secondary bg-accent-secondary-400 text-light">
+          <button
+            type="button"
+            class="btn-secondary bg-accent-secondary-400 text-light"
+          >
             Create New Account
           </button>
         </div>
       </header>
-      <div class="content_list padding-block-500">
-        <table class="list container">
-          <colgroup>
-            <col span="1" class="colgrupa1" />
-            <col span="1" class="colgrupa2" />
-            <col span="1" class="colgrupa3" />
-          </colgroup>
+      <div class="content_table_container padding-block-500 container">
+        <table class="content_table">
           <thead>
             <tr>
               <th scope="col" class="text-neutral-500 font-weight-400">ID</th>
@@ -67,7 +81,7 @@
               </th>
             </tr>
           </thead>
-          <tbody id="user-list-container"></tbody>
+          <tbody id="content_table-body"></tbody>
         </table>
       </div>
     </div>
