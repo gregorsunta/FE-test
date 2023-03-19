@@ -28,18 +28,23 @@
           <span class="name text-accent-primary-700">PLATFORM ADMIN</span>
         </div>
         <ul class="header_filters">
-          <span class="text-accent-primary-700">FILTERS</span
-          ><button class="active text-accent-primary-700">All</button
-          ><button class="text-accent-primary-700">Free</button
-          ><button class="text-accent-primary-700">Paying</button>
+          <span class="text-accent-primary-300">FILTERS</span
+          ><button class="active text-accent-primary-300">All</button
+          ><button class="text-accent-primary-300">Free</button
+          ><button class="text-accent-primary-300">Paying</button>
         </ul>
       </div>
     </header>
     <div id="content">
       <header class="bg-neutral-200 padding-block-200">
         <div class="content_header container">
-          <input aria-label="Search" placeholder="Search" class="search" />
-          <button class="btn-secondary bg-accent-secondary text-light">
+          <input
+            aria-label="Search"
+            placeholder="Search"
+            class="search"
+            id="list-search"
+          />
+          <button class="btn-secondary bg-accent-secondary-400 text-light">
             Create New Account
           </button>
         </div>
@@ -62,7 +67,7 @@
               </th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody id="user-list-container"></tbody>
         </table>
       </div>
     </div>
