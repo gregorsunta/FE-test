@@ -31,17 +31,31 @@
 }
 
 /* UTILITY */
-
+.text-light {
+  color: var(--clr-light);
+}
+.text-neutral-300 {
+  color: var(--clr-neutral-300);
+}
+.text-neutral-500 {
+  color: var(--clr-neutral-500);
+}
+.text-accent-primary-300 {
+  color: var(--clr-accent-primary-300);
+}
+.text-accent-primary-700 {
+  color: var(--clr-accent-primary-700);
+}
 .bg-neutral-200 {
   background-color: var(--clr-neutral-200);
-}
-.bg-accent-700 {
-  background-color: var(--clr-accent-primary-700);
 }
 .bg-accent-500 {
   background-color: var(--clr-accent-primary-500);
 }
-.bg-accent-secondary {
+.bg-accent-700 {
+  background-color: var(--clr-accent-primary-700);
+}
+.bg-accent-secondary-400 {
   background-color: var(--clr-accent-secondary-400);
 }
 .padding-block-100 {
@@ -62,28 +76,8 @@
 .padding-block-600 {
   padding: var(--size-600);
 }
-.text-light {
-  color: var(--clr-light);
-}
-.text-neutral-300 {
-  color: var(--clr-neutral-300);
-}
-.text-neutral-500 {
-  color: var(--clr-neutral-500);
-}
-.text-accent-primary-300 {
-  color: var(--clr-accent-primary-300);
-}
-.text-accent-primary-700 {
-  color: var(--clr-accent-primary-700);
-}
 .font-weight-400 {
   font-weight: 400;
-}
-.container {
-  --max-width: 1000px;
-  margin-inline: auto;
-  max-width: min(var(--max-width), (100% - var(--size-500)));
 }
 .btn-secondary {
   padding: var(--size-100) var(--size-500);
@@ -92,11 +86,19 @@
   /* TODO: SHOULD ADD HLS white transparency */
   background-color: var(--clr-accent-secondary-300);
 }
+.container {
+  --max-width: 1000px;
+  margin-inline: auto;
+  max-width: min(var(--max-width), (100% - var(--size-500)));
+}
 
 /* GENERIC ELEMENTS */
 
 button {
   border-radius: var(--size-200);
+}
+button:hover {
+  cursor: pointer;
 }
 input {
   max-width: 100%;
@@ -129,13 +131,10 @@ input {
   background-color: transparent;
   padding: var(--size-300);
 }
-.header_filters > button {
-  border-radius: var(--size-200);
-}
 .header_filters > button:hover {
   color: var(--clr-accent-primary-900);
 }
-.header_filters > .active {
+.header_filters .active {
   color: var(--clr-light);
   background-color: hsl(0, 100%, 100%, 0.2);
 }
@@ -144,8 +143,23 @@ input {
     display: none;
   }
 }
-/* CONTENT */
+.text-light {
+  color: var(--clr-light);
+}
+.text-neutral-300 {
+  color: var(--clr-neutral-300);
+}
+.text-neutral-500 {
+  color: var(--clr-neutral-500);
+}
+.text-accent-primary-300 {
+  color: var(--clr-accent-primary-300);
+}
+.text-accent-primary-700 {
+  color: var(--clr-accent-primary-700);
+}
 
+/* CONTENT */
 .content_header {
   display: flex;
   justify-content: space-between;
