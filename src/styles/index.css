@@ -183,9 +183,7 @@ input {
   color: var(--clr-neutral-500);
 }
 .content_table-container {
-  display: block;
-  overflow-y: scroll;
-  position: relative;
+  padding: var(--size-800) 0;
 }
 .content_table {
   width: 100%;
