@@ -35,10 +35,7 @@ const UserSearch = (function () {
   const validateInput = (input) => {
     // alphabetic characters, whitespace and empty string
     const regex = /^[a-zA-Z\s]*$/;
-    if (regex.test(input)) {
-      return true;
-    }
-    return false;
+    return regex.test(input);
   };
   const updateUI = () => {
     const tableBody = document.getElementById('content_table-body');
