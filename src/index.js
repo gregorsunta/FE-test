@@ -32,6 +32,14 @@ const UserSearch = (function () {
       // TODO: stop loading icon
     }
   };
+  const validateInput = (input) => {
+    // alphabetic characters, whitespace and empty string
+    const regex = /^[a-zA-Z\s]*$/;
+    if (regex.test(input)) {
+      return true;
+    }
+    return false;
+  };
   const updateUI = () => {
     const tableBody = document.getElementById('content_table-body');
 
@@ -70,7 +78,13 @@ const UserSearch = (function () {
     const searchBox = document.getElementById('list-search');
     searchBox.value = '';
     searchBox.addEventListener('input', (e) => {
-      fetchUsers(e.target.value);
+      const input = e.target.value;
+      if (validateInput(input)) {
+        return fetchUsers(input);
+      }
+      console.error(
+        'Only alphabetic characters, whitespaces and empty strings are allowed in the input field',
+      );
     });
   };
   return { init };
