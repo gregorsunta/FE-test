@@ -1,11 +1,11 @@
 'use strict';
 
 import './styles/index.css';
+import { API_URL } from './constants.js';
 
 const UserSearch = (function () {
   let userList = null;
   const SEARCH_TIMEOUT_AMOUNT = 800;
-
   const fetchUsers = async (searchStr) => {
     userList = null;
     try {
@@ -14,9 +14,7 @@ const UserSearch = (function () {
         setTimeout(resolve, SEARCH_TIMEOUT_AMOUNT);
       });
       // should paginate for better performance
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/users?name_like=${searchStr}`,
-      );
+      const response = await fetch(`${API_URL}/users?name_like=${searchStr}`);
       if (!response.ok) {
         throw new Error(`An error occured (${response.status})`);
       }
@@ -74,11 +72,13 @@ const UserSearch = (function () {
     // enable item search
     const searchBox = document.getElementById('list-search');
     searchBox.value = '';
+
     searchBox.addEventListener('input', (e) => {
       const input = e.target.value;
       if (validateInput(input)) {
         return fetchUsers(input);
       }
+      // TODO: show user error message
       console.error(
         'Only alphabetic characters, whitespaces and empty strings are allowed in the input field',
       );
