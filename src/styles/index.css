@@ -185,6 +185,7 @@ input {
 }
 .content_table-container {
   padding: var(--size-800) 0;
+  overflow-x: scroll;
 }
 .content_table {
   width: 100%;
