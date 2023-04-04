@@ -5,21 +5,18 @@ import { API_URL } from './constants.js';
 
 const UserSearch = (function () {
   let userList = null;
-  const SEARCH_TIMEOUT_AMOUNT = 800;
+  const SEARCH_TIMEOUT_AMOUNT = 600;
+
   const fetchUsers = async (searchStr) => {
     userList = null;
     try {
       // TODO: start loading icon
-      await new Promise((resolve) => {
-        setTimeout(resolve, SEARCH_TIMEOUT_AMOUNT);
-      });
       // should paginate for better performance
       const response = await fetch(`${API_URL}/users?name_like=${searchStr}`);
       if (!response.ok) {
         throw new Error(`An error occured (${response.status})`);
       }
       const responseJSON = await response.json();
-
       userList = responseJSON;
       updateUI();
     } catch (err) {
@@ -29,6 +26,16 @@ const UserSearch = (function () {
     } finally {
       // TODO: stop loading icon
     }
+  };
+  const debounce = (callback, delay = 500) => {
+    let timer = null;
+
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        callback(...args);
+      }, delay);
+    };
   };
   const validateInput = (input) => {
     // alphabetic characters, whitespace and empty string
@@ -72,16 +79,17 @@ const UserSearch = (function () {
     // enable item search
     const searchBox = document.getElementById('list-search');
     searchBox.value = '';
-
+    const onInput = debounce(fetchUsers, SEARCH_TIMEOUT_AMOUNT);
     searchBox.addEventListener('input', (e) => {
       const input = e.target.value;
       if (validateInput(input)) {
-        return fetchUsers(input);
+        onInput(input);
+      } else {
+        // TODO: show user error message
+        console.error(
+          'Only alphabetic characters, whitespaces and empty strings are allowed in the input field',
+        );
       }
-      // TODO: show user error message
-      console.error(
-        'Only alphabetic characters, whitespaces and empty strings are allowed in the input field',
-      );
     });
   };
   return { init };
