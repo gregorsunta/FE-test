@@ -58,8 +58,9 @@ const UserSearch = (function () {
       const id = td.cloneNode();
       const email = td.cloneNode();
 
-      id.classList.add('text-neutral-500');
-      email.classList.add('text-neutral-500');
+      id.classList.add('text-neutral-500', 'fs-450');
+      name.classList.add('fs-500');
+      email.classList.add('text-neutral-500', 'fs-450');
 
       name.textContent = user.name;
       id.textContent = user.id;
