@@ -173,7 +173,7 @@ input {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  gap: var(--size-300);
+  gap: var(--size-6);
 }
 .filters-container {
   display: flex;
@@ -193,7 +193,7 @@ input {
 @media all and (max-width: 420px) {
   .primary-header_container {
     flex-direction: column;
-    gap: var(--size-500);
+    gap: var(--size-18);
     align-items: center;
   }
 }
