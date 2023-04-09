@@ -62,6 +62,10 @@ const UserSearch = (function () {
       id.textContent = user.id;
       email.textContent = user.email;
 
+      name.setAttribute('data-label', 'Name');
+      id.setAttribute('data-label', 'ID');
+      email.setAttribute('data-label', 'Email');
+
       tr.append(id, name, email);
       return tr;
     };
