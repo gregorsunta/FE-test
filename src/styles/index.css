@@ -274,7 +274,7 @@ th {
     width: 100%;
   }
   .content_table tr {
-    margin-bottom: var(--size-20);
+    margin-bottom: var(--size-32);
   }
   .content_table tr:nth-child(2n) {
     background-color: hsl(var(--clr-light-hs), 95%);
@@ -284,6 +284,8 @@ th {
     position: relative;
   }
   .content_table td::before {
+    color: hsl(var(--clr-light-hs), 70%);
+    font-size: var(--size-12);
     content: attr(data-label);
     position: absolute;
     left: var(--size-16);
