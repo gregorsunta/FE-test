@@ -164,6 +164,7 @@ input {
   background-color: var(--clr-accent-primary-450);
   position: relative;
   z-index: 1;
+  padding: var(--size-9) 0;
 }
 .primary-header_container {
   display: flex;
@@ -201,11 +202,11 @@ input {
 /* CONTENT */
 .content_header {
   background-color: hsl(var(--clr-light-hs), 97%);
+  padding: var(--size-17) 0;
 }
 .content_header-container {
   display: flex;
   justify-content: space-between;
-  padding: var(--size-17) 0;
 }
 .search {
   background-image: url('../assets/magnifying-glass.svg');
