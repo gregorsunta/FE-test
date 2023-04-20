@@ -277,7 +277,7 @@ th {
     margin-bottom: var(--size-32);
   }
   .content_table tr:nth-child(2n) {
-    background-color: hsl(var(--clr-light-hs), 95%);
+    background-color: hsl(var(--clr-light-hs), 97%);
   }
   .content_table td {
     text-align: right;
