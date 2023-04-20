@@ -165,6 +165,7 @@ input {
   position: relative;
   z-index: 1;
   padding: var(--size-9) 0;
+  box-shadow: 0 var(--size-3) var(--size-5) hsl(var(--clr-light-hs), 85%);
 }
 .primary-header_container {
   display: flex;
@@ -221,7 +222,6 @@ input {
 }
 .content_table-container {
   padding-top: var(--size-32);
-  overflow-x: scroll;
 }
 .content_table {
   width: 100%;
